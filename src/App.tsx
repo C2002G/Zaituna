@@ -77,7 +77,7 @@ export default function App() {
             <li><a href="#historia" className="hover:text-accent-gold transition-colors">Nossa Origem</a></li>
             <li>
               <a 
-                href="https://wa.me/5551999990000" 
+                href="https://wa.me/555132736766" 
                 className="bg-brand-secondary text-brand-primary px-8 py-3 rounded-full hover:scale-105 transition-transform"
               >
                 Pedidos
@@ -103,7 +103,7 @@ export default function App() {
             <a href="#menu" onClick={toggleMenu}>Cardápio</a>
             <a href="#ambiente" onClick={toggleMenu}>O Espaço</a>
             <a href="#historia" onClick={toggleMenu}>Origem</a>
-            <a href="https://wa.me/5551999990000" className="bg-brand-secondary text-brand-primary px-10 py-4 rounded-full text-xl font-bold">WhatsApp</a>
+            <a href="https://wa.me/555132736766" className="bg-brand-secondary text-brand-primary px-10 py-4 rounded-full text-xl font-bold">WhatsApp</a>
           </motion.div>
         )}
       </AnimatePresence>
@@ -128,7 +128,7 @@ export default function App() {
               Temperos artesanais, receitas ancestrais e a hospitalidade que só o Zaituna oferece em Porto Alegre.
             </p>
             <div className="flex flex-wrap gap-5">
-              <a href="https://wa.me/5551999990000" className="group flex items-center gap-3 bg-brand-primary text-brand-secondary px-10 py-5 rounded-2xl font-black text-sm uppercase tracking-widest hover:shadow-2xl hover:-translate-y-1 transition-all">
+              <a href="https://wa.me/555132736766" className="group flex items-center gap-3 bg-brand-primary text-brand-secondary px-10 py-5 rounded-2xl font-black text-sm uppercase tracking-widest hover:shadow-2xl hover:-translate-y-1 transition-all">
                 <Phone size={18} />
                 Fazer Pedido
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -299,9 +299,9 @@ export default function App() {
             <div>
               <h4 className="text-[10px] font-black uppercase tracking-[0.3em] mb-8 opacity-40">Local e Contato</h4>
               <ul className="text-sm space-y-4 font-medium">
-                <li className="flex items-center gap-3"><MapPin size={16} /> Porto Alegre, RS</li>
-                <li className="flex items-center gap-3"><Instagram size={16} /> @zaituna_poa</li>
-                <li className="flex items-center gap-3"><Phone size={16} /> (51) 99999-0000</li>
+                <li className="flex items-center gap-3"><MapPin size={16} /> R. Olinda, 315 - São Geraldo, Porto Alegre - RS</li>
+                <li className="flex items-center gap-3"><Instagram size={16} /> @zaitunaarabe</li>
+                <li className="flex items-center gap-3"><Phone size={16} /> (51) 3273-6766</li>
               </ul>
             </div>
           </div>
@@ -318,7 +318,7 @@ export default function App() {
 
       {/* WHATSAPP FLOAT */}
       <motion.a 
-        href="https://wa.me/5551999990000"
+        href="https://wa.me/555132736766"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         className="fixed bottom-10 right-10 z-50 bg-brand-primary text-white p-5 rounded-full shadow-2xl"
