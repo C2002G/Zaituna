@@ -32,25 +32,25 @@ export default function App() {
   // Dados do cardápio baseados nas informações do usuário
   const menuItens: MenuItem[] = [
     {
-      nome: "Shawarma Tradicional",
+      nome: "Shawarma",
       desc: "Lâminas de carne marinadas em especiarias árabes, homus, picles e tomates no pão sírio.",
       preco: "R$ 38",
       tag: "Mais Pedido",
-      img: "https://images.unsplash.com/photo-1524350300373-31358f5e20ee?q=80&w=800&auto=format&fit=crop"
+      img: "assets/Fotos/Shawarma/shaw4.jpg"
     },
     {
       nome: "Combos Zaituna",
       desc: "O banquete completo: Kibe, Falafel, Esfihas e as três pastas clássicas.",
       preco: "A partir de R$ 85",
       tag: "Família",
-      img: "https://images.unsplash.com/photo-1574484284002-952d92456975?q=80&w=800&auto=format&fit=crop"
+      img: "assets/Fotos/Combos/combo11.jpg"
     },
     {
       nome: "Congelados Artesanais",
       desc: "Kibes e esfihas prontos para assar em casa, mantendo a qualidade do restaurante.",
       preco: "Sob consulta",
       tag: "Para levar",
-      img: "https://images.unsplash.com/photo-1603048588665-791ca8aea617?q=80&w=800&auto=format&fit=crop"
+      img: "assets/Fotos/Congelados/congelado.jpg"
     }
   ];
 
@@ -77,8 +77,10 @@ export default function App() {
             <li><a href="#historia" className="hover:text-accent-gold transition-colors">Nossa Origem</a></li>
             <li>
               <a 
-                href="https://wa.me/555132736766" 
+                href="https://pedido.anota.ai/loja/zaituna-cozinha-arabe-1?f=msa&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnp1S8RX_t1xHpNLBgl0sdQT-1iXEk43GR9cjhxW-golZAT6GDHmed0C3soGI_aem_piGUaXhVSItd0rNDLaFZyw&utm_id=97760_v0_s00_e0_tv6_a1denngmu0yrgl" 
                 className="bg-brand-secondary text-brand-primary px-8 py-3 rounded-full hover:scale-105 transition-transform"
+                target="_blank" 
+                rel="noopener noreferrer"
               >
                 Pedidos
               </a>
@@ -157,7 +159,7 @@ export default function App() {
           >
             <div className="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl relative z-10 border-[12px] border-white/20">
               <img 
-                src="https://images.unsplash.com/photo-1541529086526-db283c563270?q=80&w=1200&auto=format&fit=crop" 
+                src="/assets/Fotos/Combos/combo11.jpg" 
                 alt="Zaituna Cozinha Árabe" 
                 className="w-full h-full object-cover"
               />
@@ -197,8 +199,11 @@ export default function App() {
           
           <div className="grid md:grid-cols-3 gap-10">
             {menuItens.map((item, idx) => (
-              <motion.div 
+              <motion.a
                 key={idx}
+                href="https://pedido.anota.ai/loja/zaituna-cozinha-arabe-1?f=msa&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnp1S8RX_t1xHpNLBgl0sdQT-1iXEk43GR9cjhxW-golZAT6GDHmed0C3soGI_aem_piGUaXhVSItd0rNDLaFZyw&utm_id=97760_v0_s00_e0_tv6_a1denngmu0yrgl" // <- Link específico do Anota AI configurado no seu array
+                target="_blank"  // <- Abre em uma nova guia
+                rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -223,7 +228,7 @@ export default function App() {
                 <button className="flex items-center gap-2 group-hover:gap-4 transition-all text-[10px] font-black uppercase tracking-[0.2em] text-accent-gold">
                   Ver Detalhes <ArrowRight size={14} />
                 </button>
-              </motion.div>
+              </motion.a>
             ))}
           </div>
         </div>
@@ -237,7 +242,7 @@ export default function App() {
               <motion.img 
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=800&auto=format&fit=crop" 
+                src="assets\Fotos\Horta\flor.jpg" 
                 className="rounded-3xl h-80 w-full object-cover mt-12 shadow-xl" 
                 alt="Ambiente Zaituna 1" 
               />
@@ -245,7 +250,7 @@ export default function App() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2 }}
-                src="https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=800&auto=format&fit=crop" 
+                src="assets\Fotos\Lugar\quadro.jpg" 
                 className="rounded-3xl h-80 w-full object-cover shadow-xl" 
                 alt="Ambiente Zaituna 2" 
               />
