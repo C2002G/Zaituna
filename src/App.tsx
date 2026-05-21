@@ -305,7 +305,12 @@ export default function App() {
               <h4 className="text-[10px] font-black uppercase tracking-[0.3em] mb-8 opacity-40">Local e Contato</h4>
               <ul className="text-sm space-y-4 font-medium">
                 <li className="flex items-center gap-3"><MapPin size={16} /> R. Olinda, 315 - São Geraldo, Porto Alegre - RS</li>
-                <li className="flex items-center gap-3"><Instagram size={16} /> @zaitunaarabe</li>
+                <li className="flex items-center gap-3">
+                  <a href="https://www.instagram.com/zaitunaarabe" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-inherit">
+                    <Instagram size={16} /> 
+                    <span className="normal-case">@zaitunaarabe</span>
+                  </a>
+                </li>
                 <li className="flex items-center gap-3"><Phone size={16} /> (51) 3273-6766</li>
               </ul>
             </div>
