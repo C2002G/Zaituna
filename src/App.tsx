@@ -119,7 +119,7 @@ export default function App() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <span className="inline-block border border-brand-primary/20 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.3em] mb-8">
+            <span className="inline-block border border-brand-primary/20 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-[0.3em] mb-8">
               A Autêntica Cozinha Árabe
             </span>
             <h1 className="text-6xl md:text-8xl font-serif leading-[0.95] mb-8 tracking-tighter">
@@ -189,7 +189,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
             <div className="max-w-2xl">
-              <span className="text-accent-gold font-black uppercase tracking-[0.4em] text-[10px] mb-4 block">Cardápio</span>
+              <span className="text-accent-gold font-black uppercase tracking-[0.4em] text-[16px] mb-4 block">Cardápio</span>
               <h2 className="text-5xl md:text-7xl font-serif tracking-tighter">Nossas Delícias</h2>
             </div>
             <p className="md:max-w-xs text-brand-secondary/60 text-sm font-medium leading-relaxed">
