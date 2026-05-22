@@ -4,7 +4,7 @@
  */
 
 import { useEffect, useState } from 'react';
-import { Menu, X, Instagram, Phone, MapPin, Clock, Star, ArrowRight, UtensilsCrossed, Leaf, Coffee, Beer } from 'lucide-react';
+import { Menu, X, Instagram, Phone, MapPin, Star, ArrowRight, Leaf, BottleWine } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 // Tipos para os itens do cardápio para facilitar a manutenção
@@ -256,36 +256,36 @@ export default function App() {
               />
             </div>
             <div>
-              <span className="text-accent-gold font-black uppercase tracking-[0.4em] text-[10px] mb-4 block">Experiência</span>
+              <span className="text-accent-gold font-black uppercase tracking-[0.4em] text-[16px] mb-4 block">Experiência</span>
               <h2 className="text-5xl font-serif mb-8 leading-[0.95] tracking-tighter">Muito além <br /> da comida.</h2>
               <p className="text-lg opacity-80 mb-10 leading-relaxed font-medium">
-                No Zaituna, o ambiente foi pensado para que você se sinta em casa. Das flores na mesa aos quadros que contam nossa história, cada detalhe importa.
+                No Zaituna, o ambiente e produção foram pensados para que você tenha uma experiência única. Das flores na mesa aos quadros que contam nossa história, cada detalhe importa.
               </p>
               
               <div className="grid sm:grid-cols-2 gap-8 mb-12">
                 <div className="flex gap-4 items-start">
                   <div className="bg-brand-primary text-brand-secondary p-3 rounded-2xl">
-                    <UtensilsCrossed size={20} />
+                    <BottleWine size={20} />
                   </div>
                   <div>
-                    <h4 className="font-bold text-sm mb-1 uppercase tracking-wider">Cerveja Gelada</h4>
+                    <h4 className="font-bold text-sm mb-1 uppercase tracking-wider">Cerveja Libanesa</h4>
                     <p className="text-xs opacity-60 font-medium">O acompanhamento perfeito para o seu kibe.</p>
                   </div>
                 </div>
                 <div className="flex gap-4 items-start">
                   <div className="bg-brand-primary text-brand-secondary p-3 rounded-2xl">
-                    <Coffee size={20} />
+                    <Leaf size={20} />
                   </div>
                   <div>
-                    <h4 className="font-bold text-sm mb-1 uppercase tracking-wider">Café Árabe</h4>
-                    <p className="text-xs opacity-60 font-medium">Finalize sua refeição com tradição.</p>
+                    <h4 className="font-bold text-sm mb-1 uppercase tracking-wider">Horta Natural</h4>
+                    <p className="text-xs opacity-60 font-medium">Produtos naturais colhidos frescos da nossa horta.</p>
                   </div>
                 </div>
               </div>
 
-              <a href="#" className="inline-flex items-center gap-3 border-b-2 border-brand-primary pb-1 font-black text-xs uppercase tracking-widest hover:opacity-60 transition-opacity">
+              {/* <a href="#" className="inline-flex items-center gap-3 border-b-2 border-brand-primary pb-1 font-black text-xs uppercase tracking-widest hover:opacity-60 transition-opacity">
                 Agendar Reservas
-              </a>
+              </a> */}
             </div>
           </div>
         </div>
