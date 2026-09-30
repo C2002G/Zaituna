@@ -4,12 +4,15 @@
 @theme {
   --font-serif: "DM Serif Display", serif;
   --font-sans: "Plus Jakarta Sans", sans-serif;
-  
+
   --color-brand-primary: #092900;
   --color-brand-secondary: #F2FFD7;
-  
+
   --color-accent-gold: #D4AF37;
-  
+
+  /* Novo: tom para scrim de vídeo/foto nas cenas cinematográficas */
+  --color-ink: #05170A;
+
   --color-olive-50: #F2FFD7;
   --color-olive-100: #E2ECBC;
   --color-olive-200: #CED5C1;
@@ -23,11 +26,98 @@
     scroll-behavior: smooth;
     zoom: 0.8;
   }
+
+  body {
+    background-color: var(--color-brand-secondary);
+  }
+
+  /* Acessibilidade: respeita quem pediu menos movimento no sistema */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }
 
 @layer components {
-  .nav--scrolled {
-    @apply bg-white/90 backdrop-blur-md shadow-sm py-2;
+  /* ===== NAV ADAPTATIVO =====
+     .nav--top / .nav--up  -> barra cheia (logo + links + bg)
+     .nav--down            -> só logo, fundo transparente */
+  .nav-shell {
+    @apply fixed top-0 inset-x-0 z-50 px-6;
+    transition: padding 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: background-color;
+  }
+
+  .nav--top,
+  .nav--up {
+    @apply py-6 bg-brand-primary shadow-lg shadow-black/10;
+  }
+
+  .nav--down {
+    @apply py-4 bg-transparent shadow-none;
+  }
+
+  .nav-links {
+    transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s;
+  }
+
+  .nav--down .nav-links {
+    opacity: 0;
+    transform: translateY(-6px);
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  /* ===== CENAS CINEMATOGRÁFICAS ===== */
+  .scene {
+    @apply relative min-h-screen flex items-center overflow-hidden;
+  }
+
+  .scene__media {
+    @apply absolute inset-0 -z-10;
+  }
+
+  .scene__scrim {
+    @apply absolute inset-0;
+    background: linear-gradient(
+      180deg,
+      rgba(5, 23, 10, 0.55) 0%,
+      rgba(5, 23, 10, 0.35) 45%,
+      rgba(5, 23, 10, 0.75) 100%
+    );
+  }
+
+  .scene__grain {
+    @apply absolute inset-0 pointer-events-none;
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Trilha de progresso — só desktop, custo zero no mobile */
+  .rail-dot {
+    @apply w-2 h-2 rounded-full bg-brand-secondary/30 transition-all duration-300;
+  }
+
+  .rail-dot--active {
+    @apply bg-accent-gold scale-150;
+  }
+
+  /* Galeria horizontal nativa (sem lib de carrossel) */
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 }
 
@@ -35,4 +125,11 @@
 ::selection {
   background: #ced5c1;
   color: #2d3423;
+}
+
+/* Foco visível para navegação por teclado */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-accent-gold);
+  outline-offset: 3px;
 }
