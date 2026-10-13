@@ -119,6 +119,26 @@
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
+
+  /* ===== FOTO "FUNDIDA" NO FUNDO =====
+     Em vez de recortar a foto num retângulo duro, a borda dela é
+     mascarada com um gradiente — a imagem parece se dissolver na cor
+     de fundo da página (referência: delice.ca). É só CSS (mask-image),
+     GPU, zero JS e zero peso extra. */
+  .blend-photo {
+    -webkit-mask-image: radial-gradient(ellipse 68% 62% at 50% 46%, black 52%, transparent 100%);
+    mask-image: radial-gradient(ellipse 68% 62% at 50% 46%, black 52%, transparent 100%);
+  }
+
+  .blend-photo--soft {
+    -webkit-mask-image: radial-gradient(ellipse 75% 70% at 50% 50%, black 60%, transparent 100%);
+    mask-image: radial-gradient(ellipse 75% 70% at 50% 50%, black 60%, transparent 100%);
+  }
+
+  .blend-photo--bottom {
+    -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  }
 }
 
 /* Custom Selection Color */

@@ -169,7 +169,7 @@ export default function App() {
     target: heroRef,
     offset: ['start start', 'end start'],
   });
-  const heroMediaY = useTransform(heroProgress, [0, 1], [0, 140]);
+  const heroMediaY = useTransform(heroProgress, [0, 1], [0, 40]);
 
   const { scrollYProgress: historiaProgress } = useScroll({
     target: historiaRef,
@@ -275,70 +275,86 @@ export default function App() {
         ))}
       </div>
 
-      {/* HERO — cena cinematográfica full-bleed */}
-      <header id="hero" ref={heroRef} className="scene">
-        <motion.div style={{ y: heroMediaY }} className="absolute inset-0 -z-10 scale-110">
-          <CinematicMedia
-            /* Coloque um .mp4 curto em /public/assets/Videos/hero-loop.mp4 para ativar o vídeo de fundo */
-            videoSrc="/assets/Videos/hero-loop.mp4"
-            poster={fotos.combo}
-            alt="Mesa servida com pratos árabes do Zaituna"
-            allowVideo={allowVideo}
-          />
-        </motion.div>
-        <div className="scene__scrim" />
-        <div className="scene__grain" />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
-          <motion.span
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            className="inline-block border border-brand-secondary/30 text-brand-secondary px-4 py-1.5 rounded-full text-xs font-bold tracking-[0.3em] mb-8"
-          >
-            A Autêntica Cozinha Árabe
-          </motion.span>
-
-          <RevealTitle
-            lines={['Sabor que', 'conta história.']}
-            className="text-brand-secondary text-6xl md:text-8xl font-serif leading-[0.95] mb-8 tracking-tighter"
-          />
-
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.7 }}
-            className="text-brand-secondary/80 text-xl mb-10 max-w-lg font-medium leading-relaxed normal-case"
-          >
-            Temperos artesanais, receitas ancestrais e a hospitalidade que só o Zaituna oferece em Porto Alegre.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.05, duration: 0.7 }}
-            className="flex flex-wrap gap-5"
-          >
-            <a
-              href="https://wa.me/555132736766"
-              className="group flex items-center gap-3 bg-accent-gold text-brand-primary px-10 py-5 rounded-2xl font-black text-sm tracking-widest hover:shadow-2xl hover:-translate-y-1 transition-all"
+      {/* HERO — fundo claro com fotos "fundidas" no fundo (ref: delice.ca), sem scrim escuro */}
+      <header id="hero" ref={heroRef} className="scene bg-brand-secondary">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-2 gap-12 items-center py-32 lg:py-0">
+          <div>
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+              className="inline-block border border-brand-primary/20 text-brand-primary px-4 py-1.5 rounded-full text-xs font-bold tracking-[0.3em] mb-8"
             >
-              <Phone size={18} />
-              Fazer Pedido
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </a>
+              A Autêntica Cozinha Árabe
+            </motion.span>
 
-            <div className="flex gap-10 items-center text-brand-secondary/70 ml-2">
-              <div className="flex flex-col">
-                <span className="text-2xl font-serif font-bold text-brand-secondary normal-case">4.9</span>
-                <span className="text-[10px] font-black tracking-widest">Avaliação Google</span>
+            <RevealTitle
+              lines={['Sabor que', 'conta história.']}
+              className="text-brand-primary text-6xl md:text-8xl font-serif leading-[0.95] mb-8 tracking-tighter"
+            />
+
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.9, duration: 0.7 }}
+              className="text-brand-primary/70 text-xl mb-10 max-w-lg font-medium leading-relaxed normal-case"
+            >
+              Temperos artesanais, receitas ancestrais e a hospitalidade que só o Zaituna oferece em Porto Alegre.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.05, duration: 0.7 }}
+              className="flex flex-wrap gap-5"
+            >
+              <a
+                href="https://wa.me/555132736766"
+                className="group flex items-center gap-3 bg-brand-primary text-brand-secondary px-10 py-5 rounded-2xl font-black text-sm tracking-widest hover:shadow-2xl hover:-translate-y-1 transition-all"
+              >
+                <Phone size={18} />
+                Fazer Pedido
+                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              </a>
+
+              <div className="flex gap-10 items-center text-brand-primary/60 ml-2">
+                <div className="flex flex-col">
+                  <span className="text-2xl font-serif font-bold text-brand-primary normal-case">4.9</span>
+                  <span className="text-[10px] font-black tracking-widest">Avaliação Google</span>
+                </div>
+                <div className="h-8 w-px bg-brand-primary/15" />
+                <div className="flex flex-col">
+                  <span className="text-2xl font-serif font-bold text-brand-primary normal-case">+10k</span>
+                  <span className="text-[10px] font-black tracking-widest">Shawarmas/mês</span>
+                </div>
               </div>
-              <div className="h-8 w-px bg-brand-secondary/20" />
-              <div className="flex flex-col">
-                <span className="text-2xl font-serif font-bold text-brand-secondary normal-case">+10k</span>
-                <span className="text-[10px] font-black tracking-widest">Shawarmas/mês</span>
-              </div>
-            </div>
+            </motion.div>
+          </div>
+
+          {/* Colagem de fotos fundidas no fundo — sem retângulo duro, a borda dissolve na cor da página */}
+          <motion.div style={{ y: heroMediaY }} className="relative h-[420px] lg:h-[560px] hidden sm:block">
+            <div className="absolute inset-0 rounded-full bg-accent-gold/15 blur-3xl scale-90" />
+
+            <motion.img
+              initial={{ opacity: 0, scale: 0.94 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              src={fotos.combo}
+              alt="Combo servido do Zaituna"
+              loading="eager"
+              decoding="async"
+              className="blend-photo absolute inset-0 w-full h-full object-cover"
+            />
+            <motion.img
+              initial={{ opacity: 0, scale: 0.94 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
+              src={fotos.shawarma}
+              alt="Shawarma do Zaituna"
+              loading="eager"
+              decoding="async"
+              className="blend-photo--soft absolute w-[55%] h-[55%] object-cover right-0 bottom-0 translate-x-[8%] translate-y-[6%]"
+            />
           </motion.div>
         </div>
       </header>
